@@ -20,8 +20,8 @@
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
 
-  :root { --lm: 8%; }
-  .section { padding: 80px var(--lm); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 5%; }
+  .section { padding: 80px 0; }
   .section-label { font-size: 22px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
   h2 { font-size: clamp(18px, 2.5vw, 28px); font-weight: 600; line-height: 1.2; color: var(--cream); }
   h3 { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 8px; }
@@ -32,14 +32,14 @@
   .btn-primary:hover { opacity: 0.88; }
   .btn-outline { display: inline-block; padding: 15px 35px; border: 2px solid var(--gold); color: var(--gold); font-weight: 700; font-size: 15px; border-radius: 8px; }
   .btn-outline:hover { background: var(--gold); color: var(--dark); }
-  @media(max-width:768px){ :root { --lm: 5%; } .section { padding: 60px var(--lm); } }
+  @media(max-width:768px){ .section { padding: 60px 0; } }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,0.15);padding:0 3%;">
-  <div style="display:flex;align-items:center;justify-content:space-between;height:70px;">
+<nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,0.15);">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:70px;">
     <a href="index.html"><img src="logo.png" alt="Kerb Technology" style="height:72px;width:auto;"></a>
     <div class="nav-links" style="display:flex;gap:32px;align-items:center;">
       <a href="index.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Home</a>
@@ -63,8 +63,9 @@
 <style>@media(max-width:768px){.nav-links{display:none!important;}.hamburger{display:block!important;}#mob.open{display:block!important;}}</style>
 
 <!-- HERO -->
-<div class="section" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+<div class="section" style="position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(200,168,75,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="wrap" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
   <div class="section-label">Estate Agent Technology</div>
   <p style="font-size:clamp(24px,3.5vw,42px);font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--cream);margin-bottom:24px;max-width:700px;">Turn every board into a <span class="gold">lead machine.</span></p>
   <p class="sub" style="margin-bottom:40px;">Kerb attaches a dynamic QR code to your for-sale boards. Buyers scan, you capture — a warm lead from someone standing outside the door. You own the data. Not Rightmove. Not Zoopla.</p>
@@ -86,10 +87,12 @@
       <div style="font-size:13px;color:var(--dim);">your lead data</div>
     </div>
   </div>
+  </div>
 </div>
 
 <!-- WHY KERB -->
 <div class="section" style="border-top:1px solid rgba(200,168,75,0.1);">
+  <div class="wrap">
   <div class="section-label">Why Kerb</div>
   <h2 style="margin-bottom:16px;">The board outside your listing is your most underused asset.</h2>
   <p class="sub" style="margin-bottom:48px;">Thousands of people walk past your boards every week. Without Kerb, they take a photo, forget the address, and find the listing on Rightmove — handing the lead straight to the portal.</p>
@@ -115,10 +118,12 @@
       <p style="font-size:13px;color:var(--dim);line-height:1.7;">We handle setup and onboarding. No IT, no technical knowledge, no new hardware required beyond your existing boards.</p>
     </div>
   </div>
+  </div>
 </div>
 
 <!-- WHAT MAKES KERB DIFFERENT -->
 <div class="section" style="border-top:1px solid rgba(200,168,75,0.1);">
+  <div class="wrap">
   <div class="section-label">What Makes Kerb Different</div>
   <h2 style="margin-bottom:16px;">A QR code alone isn't enough.</h2>
   <p class="sub" style="margin-bottom:40px;">A free QR generator sends buyers to a link. Kerb gives them a fully branded property page, captures their contact details before they see the full listing, tracks every scan with time and location data, and sends you an instant alert the moment a lead comes in. That's the difference between a code and a complete lead engine.</p>
@@ -142,20 +147,23 @@
       <div style="font-size:14px;color:var(--dim);">✗ &nbsp;Just a link</div>
     </div>
   </div>
+  </div>
 </div>
 
 <!-- CTA BANNER -->
-<div style="background:rgba(200,168,75,0.07);border-top:1px solid rgba(200,168,75,0.2);border-bottom:1px solid rgba(200,168,75,0.2);padding:80px var(--lm);">
+<div style="background:rgba(200,168,75,0.07);border-top:1px solid rgba(200,168,75,0.2);border-bottom:1px solid rgba(200,168,75,0.2);padding:80px 0;">
+  <div class="wrap">
   <div class="section-label">Get Started</div>
   <h2 style="margin-bottom:16px;">Ready to own your leads?</h2>
   <p class="sub" style="margin-bottom:32px;">Get in touch today and we'll have your first board live within 48 hours.</p>
   <a href="contact.html" class="btn-primary">Start Your Free Trial</a>
+  </div>
 </div>
 
 
 <!-- FOOTER -->
-<footer style="background:var(--dark);border-top:1px solid rgba(200,168,75,0.15);padding:48px 8%;">
-  <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center;">
+<footer style="background:var(--dark);border-top:1px solid rgba(200,168,75,0.15);padding:48px 0;">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center;">
     <div>
       <img src="logo.png" alt="Kerb Technology" style="height:40px;width:auto;margin-bottom:12px;">
       <p style="font-size:13px;color:var(--dim);">Turning every for-sale board<br>into a lead capture engine.</p>
