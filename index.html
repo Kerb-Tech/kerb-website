@@ -21,7 +21,8 @@
   img { max-width: 100%; display: block; }
 
   /* Single consistent section padding — everything left-aligns from the same point */
-  .section { padding: 80px 5%; }
+  :root { --lm: 8%; }
+  .section { padding: 80px var(--lm); }
   .section-label { font-size: 22px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
   h2 { font-size: clamp(18px, 2.5vw, 28px); font-weight: 600; line-height: 1.2; color: var(--cream); }
   h3 { font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 8px; }
@@ -32,13 +33,13 @@
   .btn-primary:hover { opacity: 0.88; }
   .btn-outline { display: inline-block; padding: 15px 35px; border: 2px solid var(--gold); color: var(--gold); font-weight: 700; font-size: 15px; border-radius: 8px; }
   .btn-outline:hover { background: var(--gold); color: var(--dark); }
-  @media(max-width:768px){ .section { padding: 60px 5%; } }
+  @media(max-width:768px){ :root { --lm: 5%; } .section { padding: 60px var(--lm); } }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,0.15);padding:0 5%;">
+<nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,0.15);padding:0 var(--lm);">
   <div style="display:flex;align-items:center;justify-content:space-between;height:70px;">
     <a href="index.html"><img src="logo.png" alt="Kerb Technology" style="height:72px;width:auto;"></a>
     <div class="nav-links" style="display:flex;gap:32px;align-items:center;">
@@ -145,7 +146,7 @@
 </div>
 
 <!-- CTA BANNER -->
-<div style="background:rgba(200,168,75,0.07);border-top:1px solid rgba(200,168,75,0.2);border-bottom:1px solid rgba(200,168,75,0.2);" class="section">
+<div style="background:rgba(200,168,75,0.07);border-top:1px solid rgba(200,168,75,0.2);border-bottom:1px solid rgba(200,168,75,0.2);padding:80px var(--lm);">
   <div class="section-label">Get Started</div>
   <h2 style="margin-bottom:16px;">Ready to own your leads?</h2>
   <p class="sub" style="margin-bottom:32px;">Get in touch today and we'll have your first board live within 48 hours.</p>
@@ -153,7 +154,7 @@
 </div>
 
 <!-- FOOTER -->
-<footer style="background:var(--dark);border-top:1px solid rgba(200,168,75,0.15);padding:48px 5%;">
+<footer style="background:var(--dark);border-top:1px solid rgba(200,168,75,0.15);padding:48px var(--lm);">
   <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center;">
     <div>
       <img src="logo.png" alt="Kerb Technology" style="height:40px;width:auto;margin-bottom:12px;">
