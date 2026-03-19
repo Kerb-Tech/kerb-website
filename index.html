@@ -40,13 +40,13 @@
 <!-- NAV -->
 <nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,168,75,0.15);padding:0 8%;">
   <div style="display:flex;align-items:center;justify-content:space-between;height:70px;">
-    <a href="index.html"><img src="logo.png" alt="Kerb Technology" style="height:72px;width:auto;"></a>
     <div class="nav-links" style="display:flex;gap:32px;align-items:center;">
       <a href="index.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Home</a>
       <a href="how-it-works.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">How It Works</a>
       <a href="pricing.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Pricing</a>
       <a href="contact.html" style="display:inline-block;padding:10px 22px;background:var(--gold);color:var(--dark);font-size:14px;font-weight:700;border-radius:6px;">Get Started</a>
     </div>
+    <a href="index.html"><img src="logo.png" alt="Kerb Technology" style="height:72px;width:auto;"></a>
     <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" style="display:none;background:none;border:none;cursor:pointer;padding:8px;">
       <span style="display:block;width:24px;height:2px;background:var(--cream);margin:5px 0;"></span>
       <span style="display:block;width:24px;height:2px;background:var(--cream);margin:5px 0;"></span>
@@ -65,6 +65,7 @@
 <!-- HERO -->
 <div class="section" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(200,168,75,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <h1 style="text-align:center;font-size:clamp(32px,5vw,64px);font-weight:900;letter-spacing:-2px;color:var(--cream);margin-bottom:48px;">Kerb Technology</h1>
   <div class="section-label">Estate Agent Technology</div>
   <p style="font-size:clamp(24px,3.5vw,42px);font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--cream);margin-bottom:24px;max-width:700px;">Turn every board into a <span class="gold">lead machine.</span></p>
   <p class="sub" style="margin-bottom:40px;">Kerb attaches a dynamic QR code to your for-sale boards. Buyers scan, you capture — a warm lead from someone standing outside the door. You own the data. Not Rightmove. Not Zoopla.</p>
@@ -123,7 +124,7 @@
   <h2 style="margin-bottom:16px;">A QR code alone isn't enough.</h2>
   <p class="sub" style="margin-bottom:40px;">A free QR generator sends buyers to a link. Kerb gives them a fully branded property page, captures their contact details before they see the full listing, tracks every scan with time and location data, and sends you an instant alert the moment a lead comes in. That's the difference between a code and a complete lead engine.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
-    <div style="background:rgba(200,168,75,0.08);border:1px solid rgba(200,168,75,0.3);border-radius:12px;padding:24px;">
+    <div style="background:rgba(200,168,75,0.08);border:1px solid rgba(200,168,75,0.3);border-top:3px solid var(--gold);border-radius:12px;padding:24px;">
       <div style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Kerb gives you</div>
       <div style="font-size:14px;color:var(--cream);margin-bottom:10px;">✓ &nbsp;Branded property page</div>
       <div style="font-size:14px;color:var(--cream);margin-bottom:10px;">✓ &nbsp;Lead capture before full listing</div>
@@ -132,7 +133,7 @@
       <div style="font-size:14px;color:var(--cream);margin-bottom:10px;">✓ &nbsp;Your data — no portals involved</div>
       <div style="font-size:14px;color:var(--cream);">✓ &nbsp;Reassign in 2 clicks when sold</div>
     </div>
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px;">
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:3px solid var(--gold);border-radius:12px;padding:24px;">
       <div style="font-size:13px;font-weight:700;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">A free QR code gives you</div>
       <div style="font-size:14px;color:var(--dim);margin-bottom:10px;">✗ &nbsp;<strong style="color:var(--gold);">No</strong> lead capture</div>
       <div style="font-size:14px;color:var(--dim);margin-bottom:10px;">✗ &nbsp;<strong style="color:var(--gold);">No</strong> analytics</div>
@@ -157,7 +158,6 @@
 <footer style="background:var(--dark);border-top:1px solid rgba(200,168,75,0.15);padding:48px 8%;">
   <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center;">
     <div>
-      <img src="logo.png" alt="Kerb Technology" style="height:40px;width:auto;margin-bottom:12px;">
       <p style="font-size:13px;color:var(--dim);">Turning every for-sale board<br>into a lead capture engine.</p>
     </div>
     <div style="display:flex;gap:32px;flex-wrap:wrap;">
@@ -167,6 +167,7 @@
       <a href="contact.html" style="font-size:13px;color:var(--dim);">Contact</a>
     </div>
     <p style="font-size:12px;color:rgba(154,149,144,0.5);">© 2026 Kerb Technology · kerb.technology</p>
+    <img src="logo.png" alt="Kerb Technology" style="height:40px;width:auto;">
   </div>
 </footer>
 
