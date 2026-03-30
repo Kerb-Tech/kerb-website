@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kerb — Pitch Deck for Phillips & Stubbs</title>
+<title>Kerb — Pitch Deck for [AGENCY NAME]</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -946,5 +946,31 @@
   <div class="footer-line">Kerb &nbsp;·&nbsp; Confidential</div>
 </section>
 
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var agency = params.get('agency');
+  var town = params.get('town');
+
+  if (agency) {
+    // Add spaces before capitals for camelCase names like "ReedsRains" → "Reeds Rains"
+    agency = agency.replace(/([a-z])([A-Z])/g, '$1 $2');
+  }
+  if (town) {
+    // Convert comma-separated to ", " format: "Hastings,EastSussex" → "Hastings, East Sussex"
+    town = town.split(',').map(function(part) {
+      return part.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
+    }).join(', ');
+  }
+
+  if (agency) {
+    document.title = document.title.replace('[AGENCY NAME]', agency);
+    document.body.innerHTML = document.body.innerHTML.split('[AGENCY NAME]').join(agency);
+  }
+  if (town) {
+    document.body.innerHTML = document.body.innerHTML.split('[TOWN, COUNTY]').join(town);
+  }
+})();
+</script>
 </body>
 </html>
