@@ -37,7 +37,7 @@
 <a href="/" style="display:inline-block;font-size:24px;font-weight:800;color:var(--gold);margin-bottom:24px;text-decoration:none;">Kerb</a>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: 24 March 2026</p>
+<p class="updated">Last updated: 14 April 2026</p>
 
 <p>Kerb Technology ("Kerb", "we", "us", "our") is committed to protecting your privacy. This policy explains what personal data we collect, why we collect it, how we use it, and your rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
@@ -69,13 +69,16 @@
 <h3>Payment Data</h3>
 <p>When you subscribe to a paid plan, payment is processed securely by <strong>Stripe</strong>. We do not store your full card number, CVV, or bank details — these are handled entirely by Stripe in their PCI DSS Level 1 certified environment. We receive only a confirmation of payment status, plan type, and a Stripe customer ID to link your subscription to your account.</p>
 
-<h3>Analytics Data (Anonymous)</h3>
+<h3>Analytics Data</h3>
 <table>
   <tr><th>Data</th><th>Purpose</th><th>Lawful Basis</th></tr>
   <tr><td>QR code scan timestamps</td><td>Scan analytics for agents</td><td>Legitimate interest</td></tr>
   <tr><td>Page view timestamps</td><td>Engagement analytics</td><td>Legitimate interest</td></tr>
-  <tr><td>Browser user agent string</td><td>Device analytics</td><td>Legitimate interest</td></tr>
+  <tr><td>Browser user agent string</td><td>Device analytics and repeat visitor detection</td><td>Legitimate interest</td></tr>
+  <tr><td>IP address (transient)</td><td>Geo-location (country and city level analytics)</td><td>Legitimate interest</td></tr>
+  <tr><td>Device fingerprint (SHA-256 hash)</td><td>Repeat visitor detection — hashed, not reversible to a real user</td><td>Legitimate interest</td></tr>
 </table>
+<p>We do <strong>not</strong> store full IP addresses permanently. They are used only at the time of the scan to determine country and city, then discarded. Device fingerprints are one-way SHA-256 hashes of the user agent and IP address — they cannot be reversed to identify a specific person.</p>
 
 <h2>3. How We Use Your Data</h2>
 <ul>
