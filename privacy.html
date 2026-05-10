@@ -58,7 +58,16 @@
 </table>
 
 <h3>Buyers / Scanners</h3>
-<p>Kerb does <strong>not</strong> collect names, email addresses, phone numbers, or messages from members of the public who scan a QR code. When a board is scanned, the buyer is redirected straight to the estate agent's own listing page on the agent's website. Any data they subsequently submit there is governed by that agent's own privacy notice — not Kerb's.</p>
+<p>When a board is scanned, the buyer lands on a Kerb-hosted property page that displays the listing details, photos, and the agent's contact information. From that page the buyer can either click through to the agent's own listing or submit an enquiry directly to the agent through Kerb. Where a buyer chooses to submit an enquiry, we collect:</p>
+<table>
+  <tr><th>Data</th><th>Purpose</th><th>Lawful Basis</th></tr>
+  <tr><td>Name</td><td>Forwarding the enquiry to the agent</td><td>Consent (the buyer voluntarily submits the form)</td></tr>
+  <tr><td>Email address</td><td>Forwarding the enquiry to the agent and confirming receipt</td><td>Consent</td></tr>
+  <tr><td>Phone number (optional)</td><td>Forwarding the enquiry to the agent if the buyer prefers a call back</td><td>Consent</td></tr>
+  <tr><td>Free-text message (optional)</td><td>Forwarding the enquiry to the agent</td><td>Consent</td></tr>
+  <tr><td>Property reference scanned</td><td>Linking the enquiry to the correct listing</td><td>Consent</td></tr>
+</table>
+<p>Enquiries are stored against the agent's account so the agent can review and respond. The agent who owns the board becomes the joint controller for any enquiry submitted via that board and is responsible for following up under their own privacy notice. Buyers who do not submit the enquiry form remain anonymous to Kerb beyond the analytics data described below.</p>
 
 <h3>Payment Data</h3>
 <p>When you subscribe to a paid plan, payment is processed securely by <strong>Stripe</strong>. We do not store your full card number, CVV, or bank details — these are handled entirely by Stripe in their PCI DSS Level 1 certified environment. We receive only a confirmation of payment status, plan type, and a Stripe customer ID to link your subscription to your account.</p>
@@ -78,8 +87,9 @@
 <ul>
   <li>To provide and maintain the Kerb platform</li>
   <li>To authenticate estate agent accounts</li>
-  <li>To redirect QR code scans to the listing URL chosen by the estate agent</li>
-  <li>To provide scan analytics and reporting to estate agents</li>
+  <li>To display the agent's listing on a Kerb-hosted property page when a board is scanned, and to redirect through to the agent's own listing where the buyer chooses</li>
+  <li>To capture buyer enquiries submitted on the property page and forward them to the relevant estate agent</li>
+  <li>To provide scan and enquiry analytics and reporting to estate agents</li>
   <li>To communicate service updates and support information</li>
 </ul>
 <p>We do <strong>not</strong> sell, rent, or share your personal data with third parties for marketing purposes.</p>
@@ -96,6 +106,7 @@
 <h2>5. Data Retention</h2>
 <ul>
   <li><strong>Agent accounts:</strong> Retained while the account is active. Deleted within 30 days of account closure request.</li>
+  <li><strong>Buyer enquiries:</strong> Retained against the agent's account for as long as the agent's account is active, so the agent can review and respond. Buyers may request deletion at any time by emailing <a href="mailto:connect@kerb.technology">connect@kerb.technology</a>.</li>
   <li><strong>Analytics data:</strong> Retained for up to 24 months in anonymised/aggregated form.</li>
 </ul>
 
@@ -142,7 +153,7 @@
   <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center;">
     <div>
       <img src="logo-new.jpg" alt="Kerb Technology" style="height:40px;width:auto;margin-bottom:12px;">
-      <p style="font-size:13px;color:var(--dim);">Your personal QR board<br>management system.</p>
+      <p style="font-size:13px;color:var(--dim);">Your personal board<br>management system.</p>
     </div>
     <div style="display:flex;gap:32px;flex-wrap:wrap;">
       <a href="/" style="font-size:13px;color:var(--dim);text-decoration:none;">Home</a>
