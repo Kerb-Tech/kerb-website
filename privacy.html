@@ -38,7 +38,7 @@
 <a href="/" style="display:inline-block;font-size:24px;font-weight:800;color:var(--gold);margin-bottom:24px;text-decoration:none;">Kerb</a>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: 11 May 2026</p>
+<p class="updated">Last updated: 20 May 2026</p>
 
 <p>Kerb Technology ("Kerb", "we", "us", "our") is committed to protecting your privacy. This policy explains what personal data we collect, why we collect it, how we use it, and your rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
@@ -79,11 +79,10 @@
   <tr><th>Data</th><th>Purpose</th><th>Lawful Basis</th></tr>
   <tr><td>QR code scan timestamps</td><td>Scan analytics for agents</td><td>Legitimate interest</td></tr>
   <tr><td>Page view timestamps</td><td>Engagement analytics</td><td>Legitimate interest</td></tr>
-  <tr><td>Browser user agent string</td><td>Device analytics and repeat visitor detection</td><td>Legitimate interest</td></tr>
-  <tr><td>IP address (transient)</td><td>Geo-location (country and city level analytics)</td><td>Legitimate interest</td></tr>
-  <tr><td>Device fingerprint (SHA-256 hash)</td><td>Repeat visitor detection — hashed, not reversible to a real user</td><td>Legitimate interest</td></tr>
+  <tr><td>Browser user agent string</td><td>Device-type analytics (mobile / tablet / desktop)</td><td>Legitimate interest</td></tr>
+  <tr><td>Country and city (derived from IP)</td><td>Geographic analytics for agents</td><td>Legitimate interest</td></tr>
 </table>
-<p>We do <strong>not</strong> store full IP addresses permanently. They are used only at the time of the scan to determine country and city, then discarded. Device fingerprints are one-way SHA-256 hashes of the user agent and IP address — they cannot be reversed to identify a specific person.</p>
+<p>We do <strong>not</strong> store full IP addresses. At the moment a QR code is scanned, the IP is read only to derive an approximate country and city, and is then discarded — it is never written to our database. We do <strong>not</strong> create device fingerprints, persistent identifiers, or any technology designed to track an individual across visits.</p>
 
 <h2>3. How We Use Your Data</h2>
 <ul>
@@ -126,16 +125,19 @@
 </ul>
 <p>To exercise any of these rights, contact us at <a href="mailto:connect@kerb.technology">connect@kerb.technology</a>. We will respond within 30 days.</p>
 
-<h2>7. Cookies</h2>
-<p>Kerb uses only essential cookies required for authentication and session management. We do not use tracking cookies, advertising cookies, or third-party analytics cookies.</p>
+<h2>7. Cookies and Similar Technologies</h2>
+<p>Kerb uses only strictly necessary cookies for authentication and session management on the agent dashboard. We do not use tracking cookies, advertising cookies, or third-party analytics cookies. We also do not use device fingerprinting, local storage trackers, or any other similar technology that would require consent under the Privacy and Electronic Communications Regulations (PECR).</p>
 
-<h2>8. Third-Party Services</h2>
+<h2>8. Third-Party Sub-processors</h2>
 <table>
   <tr><th>Provider</th><th>Purpose</th><th>Location</th></tr>
   <tr><td>Vercel</td><td>Hosting & deployment</td><td>US (UK-US Data Bridge)</td></tr>
   <tr><td>Neon</td><td>Database</td><td>US (UK-US Data Bridge)</td></tr>
   <tr><td>Vercel Blob</td><td>Image storage</td><td>US (UK-US Data Bridge)</td></tr>
   <tr><td>Stripe</td><td>Payment processing</td><td>US/EU (Standard Contractual Clauses)</td></tr>
+  <tr><td>Resend</td><td>Transactional email delivery (lead notifications, account emails)</td><td>US (Standard Contractual Clauses)</td></tr>
+  <tr><td>Tailscale</td><td>Private network access to back-office services</td><td>US (Standard Contractual Clauses)</td></tr>
+  <tr><td>Hetzner</td><td>Property data scraping infrastructure</td><td>EU (Germany / Finland)</td></tr>
 </table>
 
 <h2>9. Children</h2>
