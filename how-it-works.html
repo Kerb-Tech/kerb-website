@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.className += ' js';</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>How It Works · Kerb Technology</title>
@@ -53,6 +54,15 @@
   /* --- motion (additive; degrades cleanly) --- */
   .magnetic { display: inline-block; will-change: transform; }
 
+  /* Reveal-on-scroll (matches the homepage). Hidden state only when .js is on. */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(-28px);
+    transition: opacity 1.2s cubic-bezier(0.22,0.7,0.2,1),
+                transform 1.2s cubic-bezier(0.22,0.7,0.2,1);
+  }
+  .js [data-reveal].is-in { opacity: 1; transform: none; }
+
   /* Sticky-stacking cards: pinning is pure CSS, JS only adds the scale/dim. */
   .kerb-stack { display: block; position: relative; }
   .kerb-stack-card {
@@ -75,6 +85,7 @@
     html { scroll-behavior: auto; }
     .magnetic { transform: none !important; }
     .kerb-stack-card { position: static; transform: none !important; filter: none !important; }
+    .js [data-reveal] { opacity: 1 !important; transform: none !important; }
   }
 </style>
 </head>
@@ -174,26 +185,26 @@
 </div></section>
 
 <section class="section"><div class="wrap">
-  <div class="section-label">Getting the QR on Your Board</div>
-  <h2 style="margin-bottom:16px;">Four ways to do it.</h2>
-  <p class="sub" style="margin-bottom:40px;">Pick the option that works for your current board stock — or mix and match.</p>
+  <div class="section-label" data-reveal="0">Getting the QR on Your Board</div>
+  <h2 style="margin-bottom:16px;" data-reveal="90">Four ways to do it.</h2>
+  <p class="sub" style="margin-bottom:40px;" data-reveal="170">Pick the option that works for your current board stock — or mix and match.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
-    <div class="card" style="text-align:center;">
+    <div class="card" data-reveal="250" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option A · Best Quality</div>
       <h3 style="margin-bottom:10px;">Printed directly onto the board</h3>
       <p style="font-size:13px;color:var(--dim);">Included in the board artwork file sent to your manufacturer. UV-resistant, weatherproof, and perfectly integrated.</p>
     </div>
-    <div class="card" style="text-align:center;">
+    <div class="card" data-reveal="330" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option B · Most Flexible</div>
       <h3 style="margin-bottom:10px;">Weatherproof vinyl sticker</h3>
       <p style="font-size:13px;color:var(--dim);">Outdoor-grade vinyl with UV laminate. Retrofits your existing boards — no reprinting required. From just 50p per board.</p>
     </div>
-    <div class="card" style="text-align:center;">
+    <div class="card" data-reveal="410" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option C · Early Adoption</div>
       <h3 style="margin-bottom:10px;">Laminated QR card</h3>
       <p style="font-size:13px;color:var(--dim);">A laminated card you can cable-tie or clip to any board. Perfect for getting started quickly — no permanent modification needed.</p>
     </div>
-    <div class="card" style="text-align:center;">
+    <div class="card" data-reveal="490" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option D · Most Premium</div>
       <h3 style="margin-bottom:10px;">Aluminium insert panel</h3>
       <p style="font-size:13px;color:var(--dim);">A branded panel screwed or riveted to your board post. Durable, premium feel, and reusable across multiple listings.</p>
