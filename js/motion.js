@@ -14,6 +14,25 @@
     window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   /* ------------------------------------------------------------------ *
+   * 0. REVEAL — elements with [data-reveal] fade + settle down into     *
+   *    place on load, staggered. The value (ms) is an explicit delay;   *
+   *    if omitted, they cascade in source order. Initial hidden state   *
+   *    lives in CSS behind the .js class, so JS-off shows them normally.*
+   * ------------------------------------------------------------------ */
+  var revealEls = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (revealEls.length) {
+    requestAnimationFrame(function () {
+      revealEls.forEach(function (el, i) {
+        var explicit = parseFloat(el.getAttribute("data-reveal"));
+        var delay = isNaN(explicit) ? i * 90 : explicit;
+        setTimeout(function () {
+          el.classList.add("is-in");
+        }, delay);
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------ *
    * 1. PARALLAX — elements with [data-parallax] drift as you scroll.    *
    *    Value is the strength (0.06 = subtle, 0.2 = strong).             *
    * ------------------------------------------------------------------ */
