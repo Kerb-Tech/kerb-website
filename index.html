@@ -56,6 +56,14 @@
   }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
 
+  /* A deeper, more defined drop with a small overshoot landing — used on the
+     three hero photos (matches the QR cards / pricing boxes). */
+  .js .qr-drop {
+    transform: translateY(-72px);
+    transition: opacity 1.1s cubic-bezier(0.22,0.7,0.2,1),
+                transform 1.15s cubic-bezier(0.34,1.5,0.5,1);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .magnetic, [data-parallax] { transform: none !important; }
@@ -98,15 +106,15 @@
   <h1 style="margin-bottom:24px;max-width:700px;" data-reveal="160">Turn every board into a lead.</h1>
   <p class="sub" style="margin-bottom:40px;" data-reveal="260">Kerb attaches a dynamic QR code to your for-sale boards. Buyers scan, you capture — a warm lead from someone standing outside the door. Your board, your data, your leads.</p>
   <div class="hero-journey" style="display:grid;grid-template-columns:repeat(3,minmax(0,240px));gap:20px;align-items:stretch;justify-content:start;">
-    <figure style="margin:0;" data-reveal="380">
+    <figure class="qr-drop" style="margin:0;" data-reveal="350">
       <div class="vframe"><img src="img/journey-1-scan.jpg" alt="Buyer scanning a Kerb QR code on a For Sale board" loading="lazy" data-vscroll style="object-position:75% center;"></div>
       <figcaption style="font-size:11px;color:var(--dim);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Board</figcaption>
     </figure>
-    <figure style="margin:0;" data-reveal="480">
+    <figure class="qr-drop" style="margin:0;" data-reveal="600">
       <div class="vframe"><img src="img/journey-2-preview.jpg" alt="Branded property page opens on the buyer's phone" loading="lazy" data-vscroll style="object-position:center;"></div>
       <figcaption style="font-size:11px;color:var(--dim);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Data</figcaption>
     </figure>
-    <figure style="margin:0;" data-reveal="580">
+    <figure class="qr-drop" style="margin:0;" data-reveal="850">
       <div class="vframe"><img src="img/journey-3-enquire.jpg" alt="Buyer submits an enquiry directly to the agent" loading="lazy" data-vscroll style="object-position:center;"></div>
       <figcaption style="font-size:11px;color:var(--dim);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Leads</figcaption>
     </figure>
