@@ -35,6 +35,14 @@
   .btn-outline { display: inline-block; padding: 15px 35px; border: 2px solid var(--gold); color: var(--gold); font-weight: 700; font-size: 15px; border-radius: 8px; }
   .btn-outline:hover { background: var(--gold); color: var(--dark); }
   @media(max-width:768px){ .section { padding: 28px 0; } }
+
+  /* --- motion (additive; degrades cleanly) --- */
+  .magnetic { display: inline-block; will-change: transform; }
+  [data-parallax] { will-change: transform; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .magnetic, [data-parallax] { transform: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -43,10 +51,10 @@
 <nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,160,74,0.15);padding:0;">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:80px;">
     <div class="nav-links" style="display:flex;gap:32px;align-items:center;">
-      <a href="/" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Home</a>
-      <a href="how-it-works.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">How It Works</a>
-      <a href="pricing.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Pricing</a>
-      <a href="https://app.kerb.technology/auth/signin" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Sign In</a>
+      <a href="/" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Home</a>
+      <a href="how-it-works.html" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">How It Works</a>
+      <a href="pricing.html" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Pricing</a>
+      <a href="https://app.kerb.technology/auth/signin" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Sign In</a>
     </div>
     <a href="/"><img src="logo-new.jpg" alt="Kerb Technology" style="height:56px;width:auto;"></a>
     <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" style="display:none;background:none;border:none;cursor:pointer;padding:8px;">
@@ -73,15 +81,15 @@
   <p class="sub" style="margin-bottom:40px;">Kerb attaches a dynamic QR code to your for-sale boards. Buyers scan, you capture — a warm lead from someone standing outside the door. Your board, your data, your leads.</p>
   <div class="hero-journey" style="display:grid;grid-template-columns:repeat(3,minmax(0,240px));gap:20px;align-items:stretch;justify-content:start;">
     <figure style="margin:0;">
-      <img src="img/journey-1-scan.jpg" alt="Buyer scanning a Kerb QR code on a For Sale board" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:75% center;border-radius:12px;display:block;">
+      <img src="img/journey-1-scan.jpg" alt="Buyer scanning a Kerb QR code on a For Sale board" loading="lazy" data-parallax="0.06" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:75% center;border-radius:12px;display:block;">
       <figcaption style="font-size:11px;color:var(--dim);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Board</figcaption>
     </figure>
     <figure style="margin:0;">
-      <img src="img/journey-2-preview.jpg" alt="Branded property page opens on the buyer's phone" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;display:block;">
+      <img src="img/journey-2-preview.jpg" alt="Branded property page opens on the buyer's phone" loading="lazy" data-parallax="0.11" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;display:block;">
       <figcaption style="font-size:11px;color:var(--dim);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Data</figcaption>
     </figure>
     <figure style="margin:0;">
-      <img src="img/journey-3-enquire.jpg" alt="Buyer submits an enquiry directly to the agent" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;display:block;">
+      <img src="img/journey-3-enquire.jpg" alt="Buyer submits an enquiry directly to the agent" loading="lazy" data-parallax="0.06" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;display:block;">
       <figcaption style="font-size:11px;color:var(--dim);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Leads</figcaption>
     </figure>
   </div>
@@ -150,6 +158,7 @@
   </div>
 </footer>
 
+<script src="js/motion.js" defer></script>
 </body>
 </html>
 

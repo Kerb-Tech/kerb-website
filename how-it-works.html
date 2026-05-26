@@ -49,6 +49,33 @@
     h1{ letter-spacing:-1px; }
     h2{ letter-spacing:-1px; }
   }
+
+  /* --- motion (additive; degrades cleanly) --- */
+  .magnetic { display: inline-block; will-change: transform; }
+
+  /* Sticky-stacking cards: pinning is pure CSS, JS only adds the scale/dim. */
+  .kerb-stack { display: block; position: relative; }
+  .kerb-stack-card {
+    position: sticky;
+    transform-origin: center top;
+    box-shadow: 0 18px 44px rgba(0,0,0,0.30);
+    will-change: transform, filter;
+  }
+  .kerb-stack-card:nth-child(1){ top: 104px; }
+  .kerb-stack-card:nth-child(2){ top: 120px; }
+  .kerb-stack-card:nth-child(3){ top: 136px; }
+  .kerb-stack-card:nth-child(4){ top: 152px; }
+  .kerb-stack-card:not(:last-child){ margin-bottom: 22px; }
+
+  @media (max-width: 768px) {
+    .kerb-stack-card { position: static; transform: none !important;
+      filter: none !important; box-shadow: none; margin-bottom: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .magnetic { transform: none !important; }
+    .kerb-stack-card { position: static; transform: none !important; filter: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -56,10 +83,10 @@
 <nav style="position:sticky;top:0;z-index:100;background:rgba(26,29,36,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,160,74,0.15);padding:0;">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:80px;">
     <div class="nav-links" style="display:flex;gap:32px;align-items:center;">
-      <a href="/" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Home</a>
-      <a href="how-it-works.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">How It Works</a>
-      <a href="pricing.html" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Pricing</a>
-      <a href="https://app.kerb.technology/auth/signin" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Sign In</a>
+      <a href="/" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Home</a>
+      <a href="how-it-works.html" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">How It Works</a>
+      <a href="pricing.html" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Pricing</a>
+      <a href="https://app.kerb.technology/auth/signin" class="magnetic" data-magnetic="0.35" style="font-size:14px;font-weight:500;color:var(--dim);" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--dim)'">Sign In</a>
     </div>
     <a href="/"><img src="logo-new.jpg" alt="Kerb Technology" style="height:56px;width:auto;"></a>
     <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" style="display:none;background:none;border:none;cursor:pointer;padding:8px;">
@@ -84,8 +111,8 @@
 </div></section>
 
 <section style="padding:20px 0 36px;"><div class="wrap" style="padding-top:0;">
-  <div style="display:grid;gap:24px;">
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
+  <div class="kerb-stack">
+    <div class="kerb-stack-card" style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
       <div style="text-align:center;">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Step</div>
         <div style="font-size:36px;font-weight:900;color:var(--cream);">1</div>
@@ -99,7 +126,7 @@
         </ul>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
+    <div class="kerb-stack-card" style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
       <div style="text-align:center;">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Step</div>
         <div style="font-size:36px;font-weight:900;color:var(--cream);">2</div>
@@ -114,7 +141,7 @@
         </ul>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
+    <div class="kerb-stack-card" style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
       <div style="text-align:center;">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Step</div>
         <div style="font-size:36px;font-weight:900;color:var(--cream);">3</div>
@@ -129,7 +156,7 @@
         </ul>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
+    <div class="kerb-stack-card" style="display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;background:var(--card);border-radius:12px;padding:32px;border-top:3px solid var(--gold);">
       <div style="text-align:center;">
         <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Always</div>
         <div style="font-size:36px;font-weight:900;color:var(--cream);">∞</div>
@@ -150,23 +177,23 @@
   <div class="section-label">Getting the QR on Your Board</div>
   <h2 style="margin-bottom:16px;">Four ways to do it.</h2>
   <p class="sub" style="margin-bottom:40px;">Pick the option that works for your current board stock — or mix and match.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
-    <div class="card" style="text-align:center;">
+  <div class="kerb-stack">
+    <div class="card kerb-stack-card" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option A · Best Quality</div>
       <h3 style="margin-bottom:10px;">Printed directly onto the board</h3>
       <p style="font-size:13px;color:var(--dim);">Included in the board artwork file sent to your manufacturer. UV-resistant, weatherproof, and perfectly integrated.</p>
     </div>
-    <div class="card" style="text-align:center;">
+    <div class="card kerb-stack-card" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option B · Most Flexible</div>
       <h3 style="margin-bottom:10px;">Weatherproof vinyl sticker</h3>
       <p style="font-size:13px;color:var(--dim);">Outdoor-grade vinyl with UV laminate. Retrofits your existing boards — no reprinting required. From just 50p per board.</p>
     </div>
-    <div class="card" style="text-align:center;">
+    <div class="card kerb-stack-card" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option C · Early Adoption</div>
       <h3 style="margin-bottom:10px;">Laminated QR card</h3>
       <p style="font-size:13px;color:var(--dim);">A laminated card you can cable-tie or clip to any board. Perfect for getting started quickly — no permanent modification needed.</p>
     </div>
-    <div class="card" style="text-align:center;">
+    <div class="card kerb-stack-card" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option D · Most Premium</div>
       <h3 style="margin-bottom:10px;">Aluminium insert panel</h3>
       <p style="font-size:13px;color:var(--dim);">A branded panel screwed or riveted to your board post. Durable, premium feel, and reusable across multiple listings.</p>
@@ -189,5 +216,6 @@
   </div>
 </footer>
 
+<script src="js/motion.js" defer></script>
 </body>
 </html>
