@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.className += ' js';</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Privacy Policy · Kerb Technology</title>
@@ -14,6 +15,18 @@
   .wrap { max-width:760px; margin:0 auto; padding:60px 5% 80px; }
   h1 { font-size:16px; font-style:italic; font-weight:600; line-height:1.2; letter-spacing:-0.5px; color:var(--cream); margin-bottom:8px; }
   .updated { font-size:12px; color:var(--dim); margin-bottom:40px; }
+
+  /* --- motion: reveal-on-load drop-in for the page header (matches index / how-it-works) --- */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(-28px);
+    transition: opacity 2s cubic-bezier(0.22,0.7,0.2,1),
+                transform 2s cubic-bezier(0.22,0.7,0.2,1);
+  }
+  .js [data-reveal].is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
   h2 { font-size:16px; font-style:italic; font-weight:600; line-height:1.2; letter-spacing:-0.5px; color:var(--cream); margin-top:36px; margin-bottom:12px; }
   h3 { font-size:14px; font-weight:500; color:var(--cream); margin-top:24px; margin-bottom:8px; }
   @media(max-width:768px){ h1{ letter-spacing:-1px; } h2{ letter-spacing:-1px; } }
@@ -57,10 +70,10 @@
 
 <div class="wrap">
 
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: 21 May 2026</p>
+<h1 data-reveal="0">Privacy Policy</h1>
+<p class="updated" data-reveal="90">Last updated: 21 May 2026</p>
 
-<p>Kerb Technology ("Kerb", "we", "us", "our") is committed to protecting your privacy. This policy explains what personal data we collect, why we collect it, how we use it, and your rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+<p data-reveal="160">Kerb Technology ("Kerb", "we", "us", "our") is committed to protecting your privacy. This policy explains what personal data we collect, why we collect it, how we use it, and your rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
 <h2>1. Who We Are</h2>
 <p>Kerb Technology Ltd (company number 16356123, registered in England and Wales) operates the property intelligence platform at <a href="https://app.kerb.technology">app.kerb.technology</a> and the website at <a href="https://www.kerb.technology">kerb.technology</a>. We are the data controller for the personal data described in this policy and are registered with the Information Commissioner's Office (ICO) under registration number <strong>ZC143818</strong>.</p>
@@ -190,5 +203,6 @@
   </div>
 </footer>
 
+<script src="js/motion.js" defer></script>
 </body>
 </html>

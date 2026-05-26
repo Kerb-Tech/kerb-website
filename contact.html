@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.className += ' js';</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Contact · Kerb Technology</title>
@@ -49,6 +50,18 @@
     h1{ letter-spacing:-1px; }
     h2{ letter-spacing:-1px; }
   }
+
+  /* --- motion: reveal-on-load drop-in (matches index / how-it-works) --- */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(-28px);
+    transition: opacity 2s cubic-bezier(0.22,0.7,0.2,1),
+                transform 2s cubic-bezier(0.22,0.7,0.2,1);
+  }
+  .js [data-reveal].is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -78,13 +91,13 @@
 <style>@media(max-width:768px){.nav-links{display:none!important;}.hamburger{display:block!important;}#mob.open{display:block!important;}}</style>
 
 <section class="section"><div class="wrap">
-  <div class="section-label">Get In Touch</div>
-  <h1 style="margin-bottom:20px;">Let's get your first board live.</h1>
-  <p class="sub" style="margin-bottom:0;">Start your free trial today — no card required. Or drop us an email and we'll get you set up.</p>
+  <div class="section-label" data-reveal="0">Get In Touch</div>
+  <h1 style="margin-bottom:20px;" data-reveal="90">Let's get your first board live.</h1>
+  <p class="sub" style="margin-bottom:0;" data-reveal="170">Start your free trial today — no card required. Or drop us an email and we'll get you set up.</p>
 </div></section>
 
 <section class="section" style="padding-top:20px;"><div class="wrap" style="padding-top:0;">
-  <div class="card" style="text-align:center;padding:56px 36px;max-width:640px;margin:0 auto;">
+  <div class="card" style="text-align:center;padding:56px 36px;max-width:640px;margin:0 auto;" data-reveal="120">
     <div style="font-size:48px;margin-bottom:20px;">🚀</div>
     <h2 style="margin-bottom:12px;">Start Your Free Trial</h2>
     <p style="font-size:15px;color:var(--dim);margin-bottom:8px;">30 days free — no card required.</p>
@@ -113,5 +126,6 @@
   </div>
 </footer>
 
+<script src="js/motion.js" defer></script>
 </body>
 </html>
