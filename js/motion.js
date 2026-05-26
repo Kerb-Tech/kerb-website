@@ -21,15 +21,35 @@
    * ------------------------------------------------------------------ */
   var revealEls = [].slice.call(document.querySelectorAll("[data-reveal]"));
   if (revealEls.length) {
-    requestAnimationFrame(function () {
-      revealEls.forEach(function (el, i) {
-        var explicit = parseFloat(el.getAttribute("data-reveal"));
-        var delay = isNaN(explicit) ? i * 90 : explicit;
-        setTimeout(function () {
-          el.classList.add("is-in");
-        }, delay);
+    function show(el) {
+      var explicit = parseFloat(el.getAttribute("data-reveal"));
+      var delay = isNaN(explicit) ? 0 : explicit;
+      setTimeout(function () {
+        el.classList.add("is-in");
+      }, delay);
+    }
+    if ("IntersectionObserver" in window) {
+      // Each element drops into view as it scrolls in (the hero, already on
+      // screen at load, fires immediately and cascades via its delays).
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              show(entry.target);
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      revealEls.forEach(function (el) {
+        io.observe(el);
       });
-    });
+    } else {
+      revealEls.forEach(function (el) {
+        el.classList.add("is-in");
+      });
+    }
   }
 
   /* ------------------------------------------------------------------ *
