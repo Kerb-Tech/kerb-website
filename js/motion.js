@@ -58,6 +58,11 @@
    * ------------------------------------------------------------------ */
   var parallaxEls = [].slice.call(document.querySelectorAll("[data-parallax]"));
 
+  /* Vertical scroll inside the frame: [data-vscroll] pans an object-fit:cover
+     image's crop up/down within its fixed frame as the page scrolls. The value
+     is the pan range in %, [data-vscroll-x] keeps a horizontal crop fixed. */
+  var vscrollEls = [].slice.call(document.querySelectorAll("[data-vscroll]"));
+
   /* ------------------------------------------------------------------ *
    * 2. STICKY-STACK polish — cards in .kerb-stack scale + dim slightly  *
    *    as the next card slides up to cover them. The pinning itself is  *
@@ -80,6 +85,16 @@
       el.style.transform = "translate3d(0," + shift.toFixed(2) + "px,0)";
     });
 
+    vscrollEls.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      var p = (vh - r.top) / (vh + r.height); // 0 entering bottom .. 1 leaving top
+      p = Math.max(0, Math.min(1, p));
+      var range = parseFloat(el.getAttribute("data-vscroll")) || 40;
+      var xPos = el.getAttribute("data-vscroll-x") || "50%";
+      var posY = 50 - range / 2 + p * range; // pans around centre
+      el.style.objectPosition = xPos + " " + posY.toFixed(1) + "%";
+    });
+
     stackCards.forEach(function (c) {
       var r = c.getBoundingClientRect();
       var stickTop = parseFloat(window.getComputedStyle(c).top) || 104;
@@ -97,7 +112,7 @@
       requestAnimationFrame(frame);
     }
   }
-  if (parallaxEls.length || stackCards.length) {
+  if (parallaxEls.length || vscrollEls.length || stackCards.length) {
     window.addEventListener("scroll", requestFrame, { passive: true });
     window.addEventListener("resize", requestFrame, { passive: true });
     frame();
