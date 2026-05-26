@@ -67,9 +67,18 @@
   .kerb-stack-card:nth-child(4){ top: 152px; }
   .kerb-stack-card:not(:last-child){ margin-bottom: 22px; }
 
+  /* Short cards (QR options) need a floor height so they have room to stack. */
+  .kerb-stack--qr .kerb-stack-card {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     .kerb-stack-card { position: static; transform: none !important;
       filter: none !important; box-shadow: none; margin-bottom: 16px; }
+    .kerb-stack--qr .kerb-stack-card { min-height: 0; display: block; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -177,7 +186,7 @@
   <div class="section-label">Getting the QR on Your Board</div>
   <h2 style="margin-bottom:16px;">Four ways to do it.</h2>
   <p class="sub" style="margin-bottom:40px;">Pick the option that works for your current board stock — or mix and match.</p>
-  <div class="kerb-stack">
+  <div class="kerb-stack kerb-stack--qr">
     <div class="card kerb-stack-card" style="text-align:center;">
       <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Option A · Best Quality</div>
       <h3 style="margin-bottom:10px;">Printed directly onto the board</h3>
