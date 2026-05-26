@@ -86,13 +86,13 @@
     });
 
     vscrollEls.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      var p = (vh - r.top) / (vh + r.height); // 0 entering bottom .. 1 leaving top
+      var frame = el.parentNode;
+      var fr = frame.getBoundingClientRect();
+      var overflow = el.offsetHeight - frame.clientHeight; // extra image height (px)
+      if (overflow <= 0) return;
+      var p = (vh - fr.top) / (vh + fr.height); // 0 entering bottom .. 1 leaving top
       p = Math.max(0, Math.min(1, p));
-      var range = parseFloat(el.getAttribute("data-vscroll")) || 40;
-      var xPos = el.getAttribute("data-vscroll-x") || "50%";
-      var posY = 50 - range / 2 + p * range; // pans around centre
-      el.style.objectPosition = xPos + " " + posY.toFixed(1) + "%";
+      el.style.transform = "translateY(" + (-p * overflow).toFixed(1) + "px)";
     });
 
     stackCards.forEach(function (c) {
