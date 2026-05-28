@@ -100,7 +100,6 @@
       var stickTop = parseFloat(window.getComputedStyle(c).top) || 104;
       var stuck = stickTop - r.top; // > 0 once pinned and being pushed up
       var k = Math.max(0, Math.min(1, stuck / 420));
-      c.style.transform = "scale(" + (1 - k * 0.05).toFixed(3) + ")";
       c.style.filter = k > 0 ? "brightness(" + (1 - k * 0.22).toFixed(3) + ")" : "";
     });
 
