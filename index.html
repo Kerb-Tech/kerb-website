@@ -42,7 +42,7 @@
   [data-parallax] { will-change: transform; }
 
   /* In-frame vertical scroll: image is taller than its frame and slides. */
-  .vframe { position: relative; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; }
+  .vframe { position: relative; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,160,74,0.3); }
   .vframe img { position: absolute; top: 0; left: 0; width: 100%; height: 132%;
     object-fit: cover; display: block; will-change: transform; }
 
@@ -148,7 +148,7 @@
   <div class="section-label" data-reveal="0">What Makes Kerb Different</div>
   <h2 style="margin-bottom:40px;" data-reveal="90">A QR code alone isn't enough.</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
-    <div class="qr-drop" data-reveal="200" style="background:rgba(212,160,74,0.08);border:1px solid rgba(212,160,74,0.3);border-radius:12px;padding:24px;">
+    <div class="qr-drop" data-reveal="200" style="background:var(--card);border-top:3px solid var(--gold);border-radius:12px;padding:24px;">
       <div style="font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Kerb gives you</div>
       <div style="font-size:14px;color:var(--cream);margin-bottom:10px;display:flex;gap:8px;align-items:flex-start;"><span>✓</span><span>Branded property page</span></div>
       <div style="font-size:14px;color:var(--cream);margin-bottom:10px;display:flex;gap:8px;align-items:flex-start;"><span>✓</span><span>Lead capture directly to you</span></div>
@@ -156,7 +156,7 @@
       <div style="font-size:14px;color:var(--cream);margin-bottom:10px;display:flex;gap:8px;align-items:flex-start;"><span>✓</span><span>Your data — no portals involved</span></div>
       <div style="font-size:14px;color:var(--cream);display:flex;gap:8px;align-items:flex-start;"><span>✓</span><span>Reassign boards from your own board management system</span></div>
     </div>
-    <div class="qr-drop" data-reveal="450" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px;">
+    <div class="qr-drop" data-reveal="450" style="background:var(--card);border-top:3px solid var(--gold);border-radius:12px;padding:24px;">
       <div style="font-size:13px;font-weight:700;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">A free QR code gives you</div>
       <div style="font-size:14px;color:var(--dim);margin-bottom:10px;display:flex;gap:8px;align-items:flex-start;"><span>✗</span><span><strong style="color:var(--gold);">No</strong> lead capture</span></div>
       <div style="font-size:14px;color:var(--dim);margin-bottom:10px;display:flex;gap:8px;align-items:flex-start;"><span>✗</span><span><strong style="color:var(--gold);">No</strong> analytics</span></div>
