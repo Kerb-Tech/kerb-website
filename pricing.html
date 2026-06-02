@@ -69,12 +69,20 @@
   }
 
   /* FAQ boxes: a deeper, slower float-in — same idea as the price cards
-     but eased over a longer, gentler settle. */
-  .js .faq-drop {
+     but eased over a longer, gentler settle. The whole group is triggered
+     together (the container carries data-reveal), so all three drop in as
+     one set with a small stagger, rather than firing independently as each
+     box scrolls past. */
+  .js .faq-group { opacity: 1; transform: none; transition: none; }
+  .js .faq-group .faq-drop {
+    opacity: 0;
     transform: translateY(-64px);
     transition: opacity 2.9s cubic-bezier(0.22,0.7,0.2,1),
                 transform 3s cubic-bezier(0.2,0.85,0.25,1);
   }
+  .js .faq-group.is-in .faq-drop { opacity: 1; transform: none; }
+  .js .faq-group.is-in .faq-drop:nth-child(2) { transition-delay: 0.25s; }
+  .js .faq-group.is-in .faq-drop:nth-child(3) { transition-delay: 0.5s; }
   @media (prefers-reduced-motion: reduce) {
     .js [data-reveal] { opacity: 1 !important; transform: none !important; }
   }
@@ -151,16 +159,16 @@
 <section class="section"><div class="wrap">
   <div class="section-label" data-reveal="0">Common Questions</div>
   <h2 style="margin-bottom:40px;" data-reveal="90">Straight answers.</h2>
-  <div style="display:grid;gap:16px;max-width:800px;">
-    <div class="faq-drop" style="background:var(--card);border-radius:10px;padding:24px;" data-reveal="170">
+  <div class="faq-group" style="display:grid;gap:16px;max-width:800px;" data-reveal="170">
+    <div class="faq-drop" style="background:var(--card);border-radius:10px;padding:24px;">
       <h3 style="margin-bottom:8px;">Do I need to change my boards?</h3>
       <p style="font-size:13px;color:var(--dim);">No. The QR attaches to the boards you already use — no reprinting, no new supplier. Add it to your existing stock and you're live.</p>
     </div>
-    <div class="faq-drop" style="background:var(--card);border-radius:10px;padding:24px;" data-reveal="280">
+    <div class="faq-drop" style="background:var(--card);border-radius:10px;padding:24px;">
       <h3 style="margin-bottom:8px;">What happens when a property sells?</h3>
       <p style="font-size:13px;color:var(--dim);">Reassign the board to a new listing — see <a href="how-it-works.html" style="color:var(--gold);">how it works</a>.</p>
     </div>
-    <div class="faq-drop" style="background:var(--card);border-radius:10px;padding:24px;" data-reveal="390">
+    <div class="faq-drop" style="background:var(--card);border-radius:10px;padding:24px;">
       <h3 style="margin-bottom:8px;">Is there a contract?</h3>
       <p style="font-size:13px;color:var(--dim);">No long-term contract. Month-to-month, cancel any time. We're confident you'll stay because the results speak for themselves.</p>
     </div>
