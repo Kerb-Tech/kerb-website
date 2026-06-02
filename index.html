@@ -46,6 +46,15 @@
   .vframe img { position: absolute; top: 0; left: 0; width: 100%; height: 110%;
     object-fit: cover; display: block; will-change: transform; }
 
+  /* Ken Burns: a slow, continuous zoom that eases in and back out (alternate),
+     each photo on its own timing + focal point so they drift independently. */
+  @keyframes kb-zoom { from { transform: scale(1.005); } to { transform: scale(1.09); } }
+  .hero-journey .vframe img.kb { animation: kb-zoom 24s ease-in-out infinite alternate; }
+  .hero-journey figure:nth-child(1) .vframe img.kb { transform-origin: 72% 45%; }
+  .hero-journey figure:nth-child(2) .vframe img.kb { transform-origin: 32% 38%; animation-duration: 28s; animation-delay: -7s; }
+  .hero-journey figure:nth-child(3) .vframe img.kb { transform-origin: 60% 62%; animation-duration: 26s; animation-delay: -13s; }
+  @media (prefers-reduced-motion: reduce) { .hero-journey .vframe img.kb { animation: none; } }
+
   /* Reveal-on-load: hidden state only applies when JS is on (.js), so a
      no-JS visitor sees everything immediately. */
   .js [data-reveal] {
@@ -107,15 +116,15 @@
   <p class="sub" style="margin-bottom:40px;" data-reveal="260">Kerb attaches a dynamic QR code to your for-sale boards. Buyers scan, you capture — a warm lead from someone standing outside the door. Your board, your data, your leads.</p>
   <div class="hero-journey" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;">
     <figure class="qr-drop" style="margin:0;" data-reveal="350">
-      <div class="vframe"><img src="img/journey-1-scan.jpg" alt="Buyer scanning a Kerb QR code on a For Sale board" loading="lazy" style="object-position:75% center;height:100%;"></div>
+      <div class="vframe"><img class="kb" src="img/journey-1-scan.jpg" alt="Buyer scanning a Kerb QR code on a For Sale board" loading="lazy" style="object-position:75% center;height:100%;"></div>
       <figcaption style="font-size:11px;color:var(--gold);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Board</figcaption>
     </figure>
     <figure class="qr-drop" style="margin:0;" data-reveal="600">
-      <div class="vframe"><img src="img/journey-2-preview.jpg" alt="Branded property page opens on the buyer's phone" loading="lazy" data-vscroll style="object-position:center;"></div>
+      <div class="vframe"><img class="kb" src="img/journey-2-preview.jpg" alt="Branded property page opens on the buyer's phone" loading="lazy" style="object-position:center;"></div>
       <figcaption style="font-size:11px;color:var(--gold);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Data</figcaption>
     </figure>
     <figure class="qr-drop" style="margin:0;" data-reveal="850">
-      <div class="vframe"><img src="img/journey-3-enquire.jpg" alt="Buyer submits an enquiry directly to the agent" loading="lazy" data-vscroll style="object-position:center;"></div>
+      <div class="vframe"><img class="kb" src="img/journey-3-enquire.jpg" alt="Buyer submits an enquiry directly to the agent" loading="lazy" style="object-position:center;"></div>
       <figcaption style="font-size:11px;color:var(--gold);margin-top:10px;text-align:center;letter-spacing:0.5px;">Your Leads</figcaption>
     </figure>
   </div>
