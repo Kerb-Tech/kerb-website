@@ -48,11 +48,11 @@
 
   /* Ken Burns: a slow, continuous zoom that eases in and back out (alternate),
      each photo on its own timing + focal point so they drift independently. */
-  @keyframes kb-zoom { from { transform: scale(1.005); } to { transform: scale(1.09); } }
-  .hero-journey .vframe img.kb { animation: kb-zoom 24s ease-in-out infinite alternate; }
+  @keyframes kb-zoom { from { transform: scale(1.0); } to { transform: scale(1.18); } }
+  .hero-journey .vframe img.kb { animation: kb-zoom 14s ease-in-out infinite alternate; }
   .hero-journey figure:nth-child(1) .vframe img.kb { transform-origin: 72% 45%; }
-  .hero-journey figure:nth-child(2) .vframe img.kb { transform-origin: 32% 38%; animation-duration: 28s; animation-delay: -7s; }
-  .hero-journey figure:nth-child(3) .vframe img.kb { transform-origin: 60% 62%; animation-duration: 26s; animation-delay: -13s; }
+  .hero-journey figure:nth-child(2) .vframe img.kb { transform-origin: 32% 38%; animation-duration: 16s; animation-delay: -5s; }
+  .hero-journey figure:nth-child(3) .vframe img.kb { transform-origin: 60% 62%; animation-duration: 15s; animation-delay: -9s; }
   @media (prefers-reduced-motion: reduce) { .hero-journey .vframe img.kb { animation: none; } }
 
   /* Reveal-on-load: hidden state only applies when JS is on (.js), so a
