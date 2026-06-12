@@ -82,6 +82,21 @@
   @media (prefers-reduced-motion: reduce) {
     .js [data-reveal] { opacity: 1 !important; transform: none !important; }
   }
+  /* Touch devices (iOS Safari especially): the transform-based reveal layered
+     over a fixed-attachment background flickers — cards drop in and then vanish
+     on scroll repaint. Show content outright (no transform/transition) and drop
+     the fixed background so there is no compositing layer to lose. Desktop keeps
+     the full drop-in animation. */
+  @media (hover: none) and (pointer: coarse) {
+    .js [data-reveal],
+    .js .qr-drop,
+    .js .faq-group .faq-drop {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    body { background-attachment: scroll; }
+  }
 </style>
 </head>
 <body>
