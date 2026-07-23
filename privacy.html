@@ -115,7 +115,7 @@
   <tr><td>Browser user agent string</td><td>Device-type analytics (mobile / tablet / desktop)</td><td>Legitimate interest</td></tr>
   <tr><td>Country and city (derived from IP)</td><td>Geographic analytics for agents</td><td>Legitimate interest</td></tr>
 </table>
-<p>We do <strong>not</strong> store full IP addresses. At the moment a QR code is scanned, the IP is read only to derive an approximate country and city, and is then discarded — it is never written to our database. We do <strong>not</strong> create device fingerprints, persistent identifiers, or any technology designed to track an individual across visits.</p>
+<p>We do <strong>not</strong> store full IP addresses for analytics or tracking. At the moment a QR code is scanned, the IP is read only to derive an approximate country and city, and is then discarded — it is never written to our database. The one exception is our security rate-limiter, which briefly holds your IP address for up to a minute solely to count repeated login or sign-up attempts and block abuse; that record expires automatically and is never used to profile or track you. We do <strong>not</strong> create device fingerprints, persistent identifiers, or any technology designed to track an individual across visits.</p>
 
 <h2>3. How We Use Your Data</h2>
 <ul>
@@ -171,6 +171,7 @@
   <tr><td>Resend</td><td>Transactional email delivery (lead notifications, account emails)</td><td>US (Standard Contractual Clauses)</td></tr>
   <tr><td>Tailscale</td><td>Private network access to back-office services</td><td>US (Standard Contractual Clauses)</td></tr>
   <tr><td>Hetzner</td><td>Property data scraping infrastructure</td><td>EU (Germany / Finland)</td></tr>
+  <tr><td>Upstash</td><td>Rate-limiting &amp; abuse prevention (temporary IP counters)</td><td>UK / EU (London)</td></tr>
 </table>
 
 <h2>9. Children</h2>
