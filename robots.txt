@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The application lives on app.kerb.technology and is noindex by design.
+Disallow: /signature-preview
+
+Sitemap: https://kerb.technology/sitemap.xml
